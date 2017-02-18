@@ -296,7 +296,7 @@ $(document).ready(function(){
 
                     ?>
                 </select><br><br>
-                <select name="department" class="selectstyle">
+                <select name="semester" class="selectstyle">
                     <option value="Select Semester">Select Semester</option>
                     <?php
                       $dept = mysql_query("SELECT * FROM tbl_semestermaster");
