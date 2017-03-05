@@ -94,7 +94,7 @@ $(document).ready(function(){
             	<ul class="dropdown-menu" role="menu">
                 	<li><a href="terms.html">Add Faculty</a></li>
                 	<li><a href="shortcodes.html">Faculty Report</a></li>
-                	<li><a href="shortcodes.html">Faculty Master</a></li>
+                	<!-- <li><a href="shortcodes.html">Faculty Master</a></li> -->
               </ul>
             </li>
     		<li class="dropdown">
@@ -102,7 +102,7 @@ $(document).ready(function(){
             	<ul class="dropdown-menu" role="menu">
                 	<li><a href="terms.html">Add Student</a></li>
                 	<li><a href="shortcodes.html">Student Report</a></li>
-                	<li><a href="shortcodes.html">Student Master</a></li>
+                	<!-- <li><a href="shortcodes.html">Student Master</a></li> -->
               </ul>
             </li>      
             <!-- <li class="dropdown">

@@ -21,7 +21,7 @@
       $personal_no = $_POST['personal_no'];
       $alternate_no = $_POST['alternate_no'];
       $department = $_POST['department'];
-
+      $designation = $_POST['designation'];
       $examination = $_POST['examination'];
       $uni = $_POST['uni'];
       $yearofpassing= $_POST['yearofpassing'];
@@ -40,10 +40,10 @@
           { 
           /*prepare sql query here and insert*/
             $insert = mysql_query("INSERT INTO tbl_faculty_add(
-            facid,first_name,last_name,father_name,mother_name,faculty_address,area,city,pincode,dob,gender,faculty_photo,email_id,faculty_contact,faculty_alternate_contact,department,  examination_passed,university,  year_of_passing,
+            facid,first_name,last_name,father_name,mother_name,faculty_address,area,city,pincode,dob,gender,faculty_photo,email_id,faculty_contact,faculty_alternate_contact,department,designation,examination_passed,university,  year_of_passing,
             percentage) 
                 VALUES('$facid','$fname','$lname','$father_name','$mother_name','$address','$area','$city','$pincode','$dob','$gender','$photo','$email','$personal_no',
-                '$alternate_no','$department','$examination','$uni',' $yearofpassing',
+                '$alternate_no','$department','$designation','$examination','$uni',' $yearofpassing',
                 '$per')");
             if($insert)
             {
@@ -148,7 +148,7 @@ $(document).ready(function(){
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="terms.html">Add Faculty</a></li>
                     <li><a href="shortcodes.html">Faculty Report</a></li>
-                    <li><a href="shortcodes.html">Faculty Master</a></li>
+                    <!-- <li><a href="shortcodes.html">Faculty Master</a></li> -->
               </ul>
             </li>
 
@@ -157,7 +157,7 @@ $(document).ready(function(){
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="terms.html">Add Student</a></li>
                     <li><a href="shortcodes.html">Student Report</a></li>
-                    <li><a href="shortcodes.html">Student Master</a></li>
+                    <!-- <li><a href="shortcodes.html">Student Master</a></li> -->
               </ul>
             </li>   
             
@@ -300,7 +300,7 @@ $(document).ready(function(){
          </div>
 
          <div class="col-md-6 admission_right">
-                
+              <h3>Department</h3>
               <!-- <form method="post"> -->
                <div class="input-group input-group1">
                   <select name="department" class="selectstyle">
@@ -315,21 +315,20 @@ $(document).ready(function(){
 
                     ?>
                 </select><br><br>
-                <!-- <select name="department" class="selectstyle">
-                    <option value="Select Semester">Select Semester</option>
-                    <?php
-                      $dept = mysql_query("SELECT * FROM tbl_semestermaster");
-                      while($row = mysql_fetch_array($dept))
-                      {
-
-                        echo "<option value=".$row['sem_name'].">".$row['sem_name']."</option>";
-                      }
-
-                    ?>
-                </select><br><br> -->
+                
              </div>
-                                             
-             
+
+              <h3>Designation</h3>
+              <!-- <form method="post"> -->
+               <div class="input-group input-group1">
+                  <select name="designation" class="selectstyle">
+                    <option value="Select Designamtion">Select Designation</option>
+                    <option value="PT Lecturer">PT Lecturer</option>
+                    <option value="Assitant Professor">Assitant Professor</option>
+                    <option value="Associate Professor">Associate Professor</option>
+
+                </select><br><br>
+             </div>
          </div>
 
 <div class="clearfix"> </div>

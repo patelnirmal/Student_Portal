@@ -15,7 +15,7 @@
       $pincode = $_POST['pincode'];
       $dob = $_POST['dob'];
       $gender = $_POST['gender'];
-      $photo = $_POST['photo'];
+      // $photo = $_POST['photo'];
       $email = $_POST['email'];
       $personal_no = $_POST['personal_no'];
       $parents_no = $_POST['parents_no'];
@@ -26,18 +26,35 @@
       $yearofpassing = $_POST['yearofpassing'];
       $per = $_POST['per'];
 
-      $insert = mysql_query("INSERT INTO tbl_student_admission(enrollment_number,first_name,last_name,father_name,mother_name,student_address,area,city,pincode,dob,gender,student_photo,email_id,student_contact,parents_contact,department,semester,examination_passed,university,year_of_passing,percentage) 
-                VALUES('$enrollment','$fname','$lname','$father_name','$mother_name','$address','$area','$city','$pincode','$dob','$gender','$photo','$email','$personal_no','$parents_no','$department','$semester','$examination','$uni',' $yearofpassing',
-                '$per')");
-      if($insert){
-        echo "<script>alert('New Student Added Successfully')</script>";
-      }else{
-        echo "<script>alert('Failed')</script>";
-      }
 
+      if(file_exists("Student_photo/" . $_FILES["file"]["name"]))
+      {
+        echo $_FILES["file"]["name"] . " already exists. ";
+      }
+      else
+      {
+          $photo = $_FILES["file"]["name"];
+          $filePath = "Student_photo/" . $photo;
+        if(move_uploaded_file($_FILES["file"]["tmp_name"],$filePath))
+          { 
+          /*prepare sql query here and insert*/
+            
+           $insert = mysql_query("INSERT INTO tbl_student_admission(enrollment_number,first_name,last_name,father_name,mother_name,student_address,area,city,pincode,dob,gender,student_photo,email_id,student_contact,parents_contact,department,semester,examination_passed,university,year_of_passing,percentage) 
+         VALUES('$enrollment','$fname','$lname','$father_name','$mother_name','$address','$area','$city','$pincode','$dob','$gender','$photo','$email','$personal_no','$parents_no','$department','$semester','$examination','$uni',' $yearofpassing',
+       '$per')");
+
+            if($insert)
+            {
+              echo "<script>alert('New Student Added Successfully')</script>";
+            }
+            else
+            {
+              echo "<script>alert('Failed')</script>";
+            }
+        }
 
     }
-
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -129,7 +146,7 @@ $(document).ready(function(){
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="terms.html">Add Faculty</a></li>
                     <li><a href="shortcodes.html">Faculty Report</a></li>
-                    <li><a href="shortcodes.html">Faculty Master</a></li>
+                    <!-- <li><a href="shortcodes.html">Faculty Master</a></li> -->
               </ul>
             </li>
 
@@ -138,7 +155,7 @@ $(document).ready(function(){
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="terms.html">Add Student</a></li>
                     <li><a href="shortcodes.html">Student Report</a></li>
-                    <li><a href="shortcodes.html">Student Master</a></li>
+                    <!-- <li><a href="shortcodes.html">Student Master</a></li> -->
               </ul>
             </li>   
             
@@ -251,7 +268,8 @@ $(document).ready(function(){
              </div>
              <div class="form-field">
          <div class="col-md-7 photo"><label>Upload Photo <em>*</em> :&nbsp;&nbsp;&nbsp;</label></div>
-         <div class="col-md-5"><input name="photo" id="cphoto" type="file" class="file upload_1" onchange="AlertFilesize();"></div>
+         <div class="col-md-5"><input name="file" id="cphoto" type="file" class="file upload_1"></div>
+         <!-- <div class="col-md-5"><input name="file" id="cphoto" type="file" class="file upload_1"></div> -->
          <div class="clearfix"> </div>
              </div>
         <div class="form-field">
