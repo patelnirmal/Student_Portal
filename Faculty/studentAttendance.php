@@ -168,9 +168,12 @@ $(document).ready(function(){
         </div>
       </div>
       <input type="submit" value="Find" class="course-submit" name="btnreport">
+      
 
     </div>
     
+    
+
     <div class="faculty_box">
         <div class="container">
             <div class="row">

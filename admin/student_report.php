@@ -168,11 +168,13 @@ $(document).ready(function(){
             <div class="row">
                 <table class="table table-bordered">
                     <thead>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Enrollment No.</th>
+                        <th>Name</th>
+<!--                         <th>First Name</th>
+                        <th>Last Name</th> -->
                         <th>Address</th>
                         <th>Student ContatNo</th>
-                        <th>Parent ContatNo</th>
+                        <!-- <th>Parent ContatNo</th> -->
                         <th>Gender</th>
                         <th>Email Id</th>
                         <th>Department</th>
@@ -190,18 +192,18 @@ $(document).ready(function(){
                           department='$dept' AND semester = '$seme'");
                           while($row = mysql_fetch_object($select))
                           {
-                              echo "<tr>
-                                      <td>$row->first_name</td>
-                                      <td>$row->last_name</td>
+                                  echo "<tr>
+                                      <td>$row->enrollment_number</td>
+                                      <td>$row->first_name $row->last_name </td>
                                       <td>$row->student_address</td>
-                                      <td>$row->student_contact</td>
-                                      <td>$row->parents_contact</td>
+                                      <td>(S)$row->student_contact <br> 
+                                          (P)$row->parents_contact</td>
                                       <td>$row->gender</td>
                                       <td>$row->email_id</td>
                                       <td>$row->department</td>
                                       <td>$row->semester</td>
                                       <td>$row->examination_passed</td>
-                                      <td><img src='Student_photo/$row->student_photo' height='100' width='100'></td>
+                                      <td><img src='../admin/Student_photo/$row->student_photo' height='100' width='100'></td>
                                     </tr>";
                           }
                         

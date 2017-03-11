@@ -1,62 +1,32 @@
 <?php
-    
-    include('db/session.php');
+	
+	include 'db/session.php';
 
-  if(isset($_POST['add_student']))
-  {
-      
-      $facid = $_POST['facid'];
-      $fname = $_POST['fname'];
-      $lname = $_POST['lname'];
-      $father_name = $_POST['father_name'];
-      $mother_name = $_POST['mother_name'];
-      $address = $_POST['address'];
-      $area = $_POST['area'];
-      $city = $_POST['city'];
-      $pincode = $_POST['pincode'];
-      $dob = $_POST['dob'];
-      $gender = $_POST['gender'];
-      //$photo = $_POST['photo'];
-      $email = $_POST['email'];
-      $personal_no = $_POST['personal_no'];
-      $alternate_no = $_POST['alternate_no'];
-      $department = $_POST['department'];
-      $designation = $_POST['designation'];
-      $examination = $_POST['examination'];
-      $uni = $_POST['uni'];
-      $yearofpassing= $_POST['yearofpassing'];
-      $per = $_POST['per'];
+	
+	if (isset($_GET['delete'])) {
+		$row = mysql_fetch_object(mysql_query("SELECT * FROM tbl_faculty_add"));
+		$delete_id = $_GET['delete'];
+		$filetodelete = "Faculty_photo/".$row->faculty_photo;
+		
+		$delete = mysql_query("DELETE FROM tbl_faculty_add WHERE facid = '$delete_id'");
+		if($delete && unlink($filetodelete)){
+			header('location:faculty_report.php');
+		}
+		else
+			alert('Failed Deleting');
+	}
 
-      if(file_exists("Faculty_photo/" . $_FILES["file"]["name"]))
-      {
-        echo $_FILES["file"]["name"] . " already exists. ";
-      }
-      else
-      {
-          $photo = $_FILES["file"]["name"];
-          $filePath = "Faculty_photo/" . $photo;
-        if(move_uploaded_file($_FILES["file"]["tmp_name"],$filePath))
-          { 
-          /*prepare sql query here and insert*/
-            $insert = mysql_query("INSERT INTO tbl_faculty_add(
-            facid,first_name,last_name,father_name,mother_name,faculty_address,area,city,pincode,dob,gender,faculty_photo,email_id,faculty_contact,faculty_alternate_contact,department,designation,examination_passed,university,year_of_passing,percentage) 
-            
-            VALUES('$facid','$fname','$lname','$father_name','$mother_name','$address','$area','$city','$pincode','$dob','$gender','$photo','$email','$personal_no',
-              '$alternate_no','$department','$designation','$examination','$uni','$yearofpassing',
-              '$per')");
-            if($insert)
-            {
-              echo "<script>alert('New Faculty Added Successfully')</script>";
-            }
-            else
-            {
-              echo "<script>alert('Failed')</script>";
-            }
-        }
-    }
-  }
+	if (isset($_GET['edit'])) {
+		$edit_id = $_GET['edit'];
+		$edit_details=mysql_fetch_array(mysql_query("SELECT * FROM tbl_faculty_add WHERE 
+			facid = '$edit_id'"));
+	}
+
+	if (isset($_POST['update_faculty'])) {
+		
+	}
+
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -188,8 +158,7 @@ $(document).ready(function(){
 <!-- form -->
 <div class="admission">
      <div class="container">
-        <h1>Introduce Yourself</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <h1>Edit Faculty</h1>
         <div class="col-md-6 admission_left">
           <h2>Personal Information</h2>
           <form method="post" enctype="multipart/form-data">
@@ -201,23 +170,28 @@ $(document).ready(function(){
                </select> -->
              </div>
              <div class="input-group input-group1">
-                <input class="form-control has-dark-background" name="facid" id="slider-name" placeholder="Faculty ID" type="text" required="">
+                <input class="form-control has-dark-background" name="facid" id="slider-name" placeholder="Faculty ID" type="text" required="" 
+                value="<?php echo $edit_details['facid'];?>">
              </div>
              <div class="input-group input-group1">
-                <input class="form-control has-dark-background" name="fname" id="slider-name" placeholder="First Name" type="text" required="">
+                <input class="form-control has-dark-background" name="fname" id="slider-name" placeholder="First Name" type="text" required=""
+                value="<?php echo $edit_details['first_name'];?>">
              </div>
              <div class="input-group input-group1">
-                <input class="form-control has-dark-background" name="lname" id="slider-name" placeholder="Last Name" type="text" required="">
+                <input class="form-control has-dark-background" name="lname" id="slider-name" placeholder="Last Name" type="text" required=""
+                value="<?php echo $edit_details['last_name'];?>">
              </div>
              <div class="input-group input-group1">
-                <input class="form-control has-dark-background" name="father_name" id="slider-name" placeholder="Father Name" type="text" required="">
+                <input class="form-control has-dark-background" name="father_name" id="slider-name" placeholder="Father Name" type="text" required=""
+                 value="<?php echo $edit_details['father_name'];?>">
              </div>
              <div class="input-group input-group1">
-                <input class="form-control has-dark-background" name="mother_name" id="slider-name" placeholder="Mother Name" type="text" required="">
+                <input class="form-control has-dark-background" name="mother_name" id="slider-name" placeholder="Mother Name" type="text" required=""
+                 value="<?php echo $edit_details['mother_name'];?>">
              </div>
             <!-- select-block -->
               <div class="select-block1">
-                <textarea rows="3" cols="50" placeholder="Permanent Address" name="address"></textarea>
+                <textarea rows="3" cols="50" placeholder="Permanent Address" name="address" value=''><?php echo $edit_details['faculty_address'];?></textarea>
               </div>
               <div class="col-md-4 form_box">
                   <div class="select-block1">
@@ -239,12 +213,14 @@ $(document).ready(function(){
                  </div>
                  <div class="col-md-4 form_box1">
                    <div class="input-group input-group1">
-                      <input class="form-control has-dark-background" name="pincode" id="slider-name" placeholder="Postal Code" type="text" required="">
+                      <input class="form-control has-dark-background" name="pincode" id="slider-name" placeholder="Postal Code" type="text" required=""
+                      value="<?php echo $edit_details['pincode'];?>">
                    </div>
                   </div>
                   <div class="clearfix"> </div>
                <div class="input-group input-group1">
-                <input class="form-control has-dark-background" name="dob" id="slider-name" placeholder="DOB" type="date" required="">
+                <input class="form-control has-dark-background" name="dob" id="slider-name" placeholder="DOB" type="date" required="" 
+                value="<?php echo $edit_details['dob'];?>">
              </div>
               <div class="form-group col-md-12 form-group1">
                 <label class="col-md-7 control-lable" for="sex">Sex : </label>
@@ -280,13 +256,16 @@ $(document).ready(function(){
               <h3>Contact Information</h3>
               <!-- <form method="post"> -->
                <div class="input-group input-group1">
-                  <input class="form-control has-dark-background" name="email" id="slider-name" placeholder="Email ID" type="text" required="">
+                  <input class="form-control has-dark-background" name="email" id="slider-name" placeholder="Email ID" type="text" required=""
+                  value="<?php echo $edit_details['email_id'];?>">
                </div>
                <div class="input-group input-group1">
-                  <input class="form-control has-dark-background" name="personal_no" id="slider-name" placeholder="Phone no (Personal)" type="text" required="">
+                  <input class="form-control has-dark-background" name="personal_no" id="slider-name" placeholder="Phone no (Personal)" type="text" required=""
+                  value="<?php echo $edit_details['faculty_contact'];?>">
                </div>
                <div class="input-group input-group1">
-                  <input class="form-control has-dark-background" name="alternate_no" id="slider-name" placeholder="Phone no (Alternate)" type="text" required="">
+                  <input class="form-control has-dark-background" name="alternate_no" id="slider-name" placeholder="Phone no (Alternate)" type="text" required=""
+                  value="<?php echo $edit_details['faculty_alternate_contact'];?>">
                </div><br><br><br>
                <!-- <div class="input-group input-group1">
                   <input class="form-control has-dark-background" name="slider-name" id="slider-name" placeholder="Postal code" type="text" required="">
@@ -339,10 +318,10 @@ $(document).ready(function(){
                 </thead>
                 <tbody>
                 <tr>
-                  <td><input name="examination" type="text" class="no-box" placeholder="Examination"></td>
-                  <td><input name="uni" type="text" class="no-box" placeholder="University"></td>
-                  <td><input name="yearofpassing" type="text" class="no-box" placeholder="YOP"></td>
-                  <td><input name="per" type="text" class="no-box" placeholder="Percentage"></td>
+                  <td><input name="examination" type="text" class="no-box" placeholder="Examination" value="<?php echo $edit_details['examination_passed'];?>"></td>
+                  <td><input name="uni" type="text" class="no-box" placeholder="University" value="<?php echo $edit_details['university'];?>"></td>
+                  <td><input name="yearofpassing" type="text" class="no-box" placeholder="YOP" value="<?php echo $edit_details['year_of_passing'];?>"></td>
+                  <td><input name="per" type="text" class="no-box" placeholder="Percentage" value="<?php echo $edit_details['percentage'];?>"></td>
                 </tr>
 
                 <!--<tr>
@@ -361,7 +340,7 @@ $(document).ready(function(){
                
                </tbody>
       </table><br><br>
-      <input type="submit" value="Apply Now" class="course-submit" name="add_student">
+      <input type="submit" value="Update Faculty" class="course-submit" name="update_faculty">
       </form>
        <div class="clearfix"> </div>
      </div>

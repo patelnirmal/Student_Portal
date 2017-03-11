@@ -154,8 +154,9 @@ $(document).ready(function(){
             <div class="row">
                 <table class="table table-bordered">
                     <thead>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <!-- <th>First Name</th> -->
+                        <!-- <th>Last Name</th> -->
+                        <th>Full Name</th>
                         <th>Address</th>
                         <th>Contatno</th>
                         <th>DOB</th>
@@ -165,6 +166,7 @@ $(document).ready(function(){
                         <th>Qualification</th>
                         <th>Designation</th>
                         <th>Photo</th>
+                        <th>EDIT</th>
                     </thead>
                     <tbody>
                     <?php
@@ -172,11 +174,13 @@ $(document).ready(function(){
                       {
                         $dept = $_POST['facultydepartment'];
                         $select = mysql_query("SELECT * FROM tbl_faculty_add WHERE department='$dept'");
+                          
+                        $row = mysql_fetch_object(mysql_query("SELECT * FROM tbl_faculty_add"));
+
                           while($row = mysql_fetch_object($select))
                           {
                               echo "<tr>
-                                      <td>$row->first_name</td>
-                                      <td>$row->last_name</td>
+                                      <td>$row->first_name $row->last_name</td>
                                       <td>$row->faculty_address</td>
                                       <td>$row->faculty_contact</td>
                                       <td>$row->dob</td>
@@ -186,6 +190,10 @@ $(document).ready(function(){
                                       <td>$row->examination_passed</td>
                                       <td>$row->designation</td>
                                       <td><img src='Faculty_photo/$row->faculty_photo' height='100' width='100'></td>
+
+                    <td><a href='faculty_edit.php?edit=".$row->facid."'>Edit</a> <br>
+                        <a href='faculty_edit.php?delete=".$row->facid."'>Delete</a>
+                    </td>
                                     </tr>";
                           }
                       }
