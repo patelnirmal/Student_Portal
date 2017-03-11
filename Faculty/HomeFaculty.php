@@ -93,7 +93,7 @@ $(document).ready(function(){
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Student<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="terms.html">Student Details</a></li>
+                <li><a href="studentDetails.php">Student Details</a></li>
                 <li><a href="shortcodes.html">Update Student</a></li>
                </ul>
             </li>

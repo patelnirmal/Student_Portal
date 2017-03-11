@@ -15,7 +15,7 @@
       $pincode = $_POST['pincode'];
       $dob = $_POST['dob'];
       $gender = $_POST['gender'];
-      // $photo = $_POST['photo'];
+      // $photo = $_POST['file'];
       $email = $_POST['email'];
       $personal_no = $_POST['personal_no'];
       $parents_no = $_POST['parents_no'];
@@ -28,9 +28,8 @@
 
 
       if(file_exists("Student_photo/" . $_FILES["file"]["name"]))
-      {
-        echo $_FILES["file"]["name"] . " already exists. ";
-      }
+       {
+          echo $_FILES["file"]["name"] . " already exists. ";       }
       else
       {
           $photo = $_FILES["file"]["name"];
@@ -40,8 +39,8 @@
           /*prepare sql query here and insert*/
             
            $insert = mysql_query("INSERT INTO tbl_student_admission(enrollment_number,first_name,last_name,father_name,mother_name,student_address,area,city,pincode,dob,gender,student_photo,email_id,student_contact,parents_contact,department,semester,examination_passed,university,year_of_passing,percentage) 
-         VALUES('$enrollment','$fname','$lname','$father_name','$mother_name','$address','$area','$city','$pincode','$dob','$gender','$photo','$email','$personal_no','$parents_no','$department','$semester','$examination','$uni',' $yearofpassing',
-       '$per')");
+           VALUES('$enrollment','$fname','$lname','$father_name','$mother_name','$address','$area','$city','$pincode','$dob','$gender','$photo','$email','$personal_no','$parents_no',
+           '$department','$semester','$examination','$uni',' $yearofpassing','$per')");
 
             if($insert)
             {
@@ -52,7 +51,6 @@
               echo "<script>alert('Failed')</script>";
             }
         }
-
     }
 }
 ?>
@@ -144,8 +142,8 @@ $(document).ready(function(){
             <li class="dropdown">
                 <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Faculty<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="terms.html">Add Faculty</a></li>
-                    <li><a href="shortcodes.html">Faculty Report</a></li>
+                    <li><a href="faculty_add.php">Add Faculty</a></li>
+                    <li><a href="faculty_report.php">Faculty Report</a></li>
                     <!-- <li><a href="shortcodes.html">Faculty Master</a></li> -->
               </ul>
             </li>
@@ -153,8 +151,8 @@ $(document).ready(function(){
             <li class="dropdown">
                 <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Student<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="terms.html">Add Student</a></li>
-                    <li><a href="shortcodes.html">Student Report</a></li>
+                    <li><a href="admission.php">Add Student</a></li>
+                    <li><a href="student_report.php">Student Report</a></li>
                     <!-- <li><a href="shortcodes.html">Student Master</a></li> -->
               </ul>
             </li>   
@@ -164,11 +162,11 @@ $(document).ready(function(){
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="branch_master.php">Branch Master</a></li>
                     <li><a href="semester_master.php">Semester Master</a></li>
-                    <li><a href="terms.html">Exam Master</a></li>
+                    <li><a href="exam_master.html">Exam Master</a></li>
               </ul>
             </li>
             
-            <li class="last"><a href="contact.html">Contacts</a></li>
+            <!-- <li class="last"><a href="contact.html">Contacts</a></li> -->
         </ul>
      </div><!-- /.navbar-collapse -->
    </div>
@@ -194,7 +192,7 @@ $(document).ready(function(){
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
         <div class="col-md-6 admission_left">
           <h2>Personal Information</h2>
-          <form method="post">
+          <form method="post" enctype="multipart/form-data">
              <div class="select-block1">
                 <!-- <select>
                     <option value="">Title</option>
@@ -268,8 +266,8 @@ $(document).ready(function(){
              </div>
              <div class="form-field">
          <div class="col-md-7 photo"><label>Upload Photo <em>*</em> :&nbsp;&nbsp;&nbsp;</label></div>
-         <div class="col-md-5"><input name="file" id="cphoto" type="file" class="file upload_1"></div>
-         <!-- <div class="col-md-5"><input name="file" id="cphoto" type="file" class="file upload_1"></div> -->
+         <div class="col-md-5"><input type="file" name="file" class="file upload_1"></div>
+        
          <div class="clearfix"> </div>
              </div>
         <div class="form-field">

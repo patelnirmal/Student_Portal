@@ -1,9 +1,6 @@
 <?php
     
     include('db/session.php');
-
-    
-                  
 ?>
 
 <!DOCTYPE HTML>
@@ -99,8 +96,8 @@ $(document).ready(function(){
             <li class="dropdown">
                 <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Faculty<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="terms.html">Add Faculty</a></li>
-                    <li><a href="shortcodes.html">Faculty Report</a></li>
+                    <li><a href="faculty_add.php">Add Faculty</a></li>
+                    <li><a href="faculty_report.php">Faculty Report</a></li>
                     <!-- <li><a href="shortcodes.html">Faculty Master</a></li> -->
               </ul>
             </li>
@@ -108,8 +105,8 @@ $(document).ready(function(){
             <li class="dropdown">
                 <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Student<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="terms.html">Add Student</a></li>
-                    <li><a href="shortcodes.html">Student Report</a></li>
+                    <li><a href="admission.php">Add Student</a></li>
+                    <li><a href="student_report.php">Student Report</a></li>
                     <!-- <li><a href="shortcodes.html">Student Master</a></li> -->
               </ul>
             </li>   
@@ -119,11 +116,9 @@ $(document).ready(function(){
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="branch_master.php">Branch Master</a></li>
                     <li><a href="semester_master.php">Semester Master</a></li>
-                    <li><a href="terms.html">Exam Master</a></li>
+                    <li><a href="exam_master.html">Exam Master</a></li>
               </ul>
             </li>
-            
-            <li class="last"><a href="contact.html">Contacts</a></li>
         </ul>
      </div><!-- /.navbar-collapse -->
    </div>
@@ -134,7 +129,7 @@ $(document).ready(function(){
       <h3>Student Report</h3>
       <div class="col-md-6 admission_left"">
         <div class="input-group input-group1">
-          <select name="facultydepartment" class="selectstyle">
+          <select name="studentdepartment" class="selectstyle">
                       <option value="Select Department">Select Department</option>
                       <?php
                         $dept = mysql_query("SELECT * FROM tbl_branchmaster");
@@ -142,6 +137,22 @@ $(document).ready(function(){
                         {
 
                           echo "<option value=".$row['department_name'].">".$row['department_name']."</option>";
+                        }
+
+                      ?>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6 admission_left"">
+        <div class="input-group input-group1">
+          <select name="studentsemester" class="selectstyle">
+                      <option value="Select Semester">Select Semester</option>
+                      <?php
+                        $seme = mysql_query("SELECT * FROM tbl_semestermaster");
+                        while($row = mysql_fetch_array($seme))
+                        {
+
+                          echo "<option value=".$row['sem_name'].">".$row['sem_name']."</option>";
                         }
 
                       ?>
@@ -160,33 +171,37 @@ $(document).ready(function(){
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Address</th>
-                        <th>Contatno</th>
+                        <th>Student ContatNo</th>
+                        <th>Parent ContatNo</th>
                         <th>Gender</th>
                         <th>Email Id</th>
                         <th>Department</th>
+                        <th>Semester</th>
                         <th>Qualification</th>
-                        <!-- <th>Designation</th> -->
                         <th>Photo</th>
                     </thead>
                     <tbody>
                     <?php
                     if(isset($_POST['btnreport']))
                       {
-                        $dept = $_POST['facultydepartment'];
-                        $select = mysql_query("SELECT * FROM tbl_student_admission WHERE department='$dept'");
+                        $dept = $_POST['studentdepartment'];
+                        $seme = $_POST['studentsemester'];
+                        $select = mysql_query("SELECT * FROM tbl_student_admission WHERE 
+                          department='$dept' AND semester = '$seme'");
                           while($row = mysql_fetch_object($select))
                           {
                               echo "<tr>
                                       <td>$row->first_name</td>
                                       <td>$row->last_name</td>
-                                      <td>$row->faculty_address</td>
-                                      <td>$row->faculty_contact</td>
+                                      <td>$row->student_address</td>
+                                      <td>$row->student_contact</td>
+                                      <td>$row->parents_contact</td>
                                       <td>$row->gender</td>
                                       <td>$row->email_id</td>
                                       <td>$row->department</td>
+                                      <td>$row->semester</td>
                                       <td>$row->examination_passed</td>
-                                      <td>$row->designation</td>
-                                      <td><img src='Faculty_photo/$row->faculty_photo' height='100' width='100'></td>
+                                      <td><img src='Student_photo/$row->student_photo' height='100' width='100'></td>
                                     </tr>";
                           }
                         

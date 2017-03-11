@@ -27,7 +27,6 @@
       $yearofpassing= $_POST['yearofpassing'];
       $per = $_POST['per'];
 
-      
       if(file_exists("Faculty_photo/" . $_FILES["file"]["name"]))
       {
         echo $_FILES["file"]["name"] . " already exists. ";
@@ -40,11 +39,11 @@
           { 
           /*prepare sql query here and insert*/
             $insert = mysql_query("INSERT INTO tbl_faculty_add(
-            facid,first_name,last_name,father_name,mother_name,faculty_address,area,city,pincode,dob,gender,faculty_photo,email_id,faculty_contact,faculty_alternate_contact,department,designation,examination_passed,university,  year_of_passing,
-            percentage) 
-                VALUES('$facid','$fname','$lname','$father_name','$mother_name','$address','$area','$city','$pincode','$dob','$gender','$photo','$email','$personal_no',
-                '$alternate_no','$department','$designation','$examination','$uni',' $yearofpassing',
-                '$per')");
+            facid,first_name,last_name,father_name,mother_name,faculty_address,area,city,pincode,dob,gender,faculty_photo,email_id,faculty_contact,faculty_alternate_contact,department,designation,examination_passed,university,year_of_passing,percentage) 
+            
+            VALUES('$facid','$fname','$lname','$father_name','$mother_name','$address','$area','$city','$pincode','$dob','$gender','$photo','$email','$personal_no',
+              '$alternate_no','$department','$designation','$examination','$uni','$yearofpassing',
+              '$per')");
             if($insert)
             {
               echo "<script>alert('New Faculty Added Successfully')</script>";
@@ -56,7 +55,6 @@
         }
     }
   }
-
 ?>
 
 <!DOCTYPE HTML>
@@ -146,8 +144,8 @@ $(document).ready(function(){
             <li class="dropdown">
                 <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Faculty<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="terms.html">Add Faculty</a></li>
-                    <li><a href="shortcodes.html">Faculty Report</a></li>
+                    <li><a href="faculty_add.php">Add Faculty</a></li>
+                    <li><a href="faculty_report.php">Faculty Report</a></li>
                     <!-- <li><a href="shortcodes.html">Faculty Master</a></li> -->
               </ul>
             </li>
@@ -155,8 +153,8 @@ $(document).ready(function(){
             <li class="dropdown">
                 <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Student<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="terms.html">Add Student</a></li>
-                    <li><a href="shortcodes.html">Student Report</a></li>
+                    <li><a href="admission.php">Add Student</a></li>
+                    <li><a href="student_report.php">Student Report</a></li>
                     <!-- <li><a href="shortcodes.html">Student Master</a></li> -->
               </ul>
             </li>   
@@ -166,11 +164,9 @@ $(document).ready(function(){
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="branch_master.php">Branch Master</a></li>
                     <li><a href="semester_master.php">Semester Master</a></li>
-                    <li><a href="terms.html">Exam Master</a></li>
+                    <li><a href="exam_master.html">Exam Master</a></li>
               </ul>
             </li>
-            
-            <li class="last"><a href="contact.html">Contacts</a></li>
         </ul>
      </div><!-- /.navbar-collapse -->
    </div>

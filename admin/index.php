@@ -1,5 +1,6 @@
 <?php
 	include('db/config.php');
+    
 	session_start();
 	if(isset($_POST['admin_login']))
 	{

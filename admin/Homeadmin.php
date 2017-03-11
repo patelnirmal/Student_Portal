@@ -88,41 +88,33 @@ $(document).ready(function(){
    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
         <ul class="nav navbar-nav nav_1">
-            <li><a href="Home.php">Home</a></li>
+            <li><a href="Homeadmin.php">Home</a></li>
             <li class="dropdown">
-            	<a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Faculty<span class="caret"></span></a>
-            	<ul class="dropdown-menu" role="menu">
-                	<li><a href="terms.html">Add Faculty</a></li>
-                	<li><a href="shortcodes.html">Faculty Report</a></li>
-                	<!-- <li><a href="shortcodes.html">Faculty Master</a></li> -->
+                <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Faculty<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="faculty_add.php">Add Faculty</a></li>
+                    <li><a href="faculty_report.php">Faculty Report</a></li>
+                    <!-- <li><a href="shortcodes.html">Faculty Master</a></li> -->
               </ul>
             </li>
-    		<li class="dropdown">
-            	<a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Student<span class="caret"></span></a>
-            	<ul class="dropdown-menu" role="menu">
-                	<li><a href="terms.html">Add Student</a></li>
-                	<li><a href="shortcodes.html">Student Report</a></li>
-                	<!-- <li><a href="shortcodes.html">Student Master</a></li> -->
-              </ul>
-            </li>      
-            <!-- <li class="dropdown">
-            	<a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Fees<span class="caret"></span></a>
-            	<ul class="dropdown-menu" role="menu">
-                	<li><a href="#">Add New Fees</a></li>
-                	<li><a href="shortcodes.html">Fees Receipt</a></li>
-                	<li><a href="shortcodes.html">Fees Report</a></li>
-                	<li><a href="fees_master.php">Fees Master</a></li>
-              </ul>
-            </li> -->
+
             <li class="dropdown">
-            	<a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Master<span class="caret"></span></a>
-            	<ul class="dropdown-menu" role="menu">
-                	<li><a href="branch_master.php">Branch Master</a></li>
-                	<li><a href="semester_master.php">Semester Master</a></li>
-                	<li><a href="terms.html">Exam Master</a></li>
+                <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Student<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="admission.php">Add Student</a></li>
+                    <li><a href="student_report.php">Student Report</a></li>
+                    <!-- <li><a href="shortcodes.html">Student Master</a></li> -->
+              </ul>
+            </li>   
+            
+            <li class="dropdown">
+                <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Master<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="branch_master.php">Branch Master</a></li>
+                    <li><a href="semester_master.php">Semester Master</a></li>
+                    <li><a href="exam_master.html">Exam Master</a></li>
               </ul>
             </li>
-            <li class="last"><a href="contact.html">Contacts</a></li>
         </ul>
      </div><!-- /.navbar-collapse -->
    </div>
