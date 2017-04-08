@@ -1,37 +1,7 @@
 <?php
     
     include('db/faculty_session.php');
-    if (isset($_POST['update_student'])) {
-       $enrollment = $_POST['find_en'];
-      $enrollmentno = $_POST['enrollment'];
-      $fname = $_POST['fname'];
-      $lname = $_POST['lname'];
-      $father_name = $_POST['father_name'];
-      $mother_name = $_POST['mother_name'];
-      $address = $_POST['address'];
-      $area = $_POST['area'];
-      $city = $_POST['city'];
-      $pincode = $_POST['pincode'];
-      $dob = $_POST['dob'];
-      $gender = $_POST['gender'];
-      $email = $_POST['email'];
-      // $personal_no = $_POST['personal_number'];
-      // $parents_no = $_POST['parents_number'];
-      
-      $update = mysql_query("UPDATE tbl_student_admission SET enrollment_number = '$enrollmentno',
-        first_name='$fname',last_name='$lname',father_name='$father_name',
-        mother_name='$mother_name',student_address='$address',area='$area',city='$city',
-        picode='$pincode',dob='$dob',gender='$gender',email_id='$email' 
-        WHERE enrollment_number = '$enrollment' ");
-      if($update){
-        echo "<script>alert('Updated')</script>";
-      }else{
-        echo "<script>alert('Failed')</script>";
-      }
-    }
-    
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <?php
@@ -45,18 +15,7 @@
 </style>
 <body>
 
-<nav class="navbar nav_bottom" role="navigation">
- <div class="container">
- <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header nav_2">
-      <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"></a>
-   </div> 
+
    <!-- Collect the nav links, forms, and other content for toggling -->
    <?php
       include 'layouts/menu.php';
@@ -196,6 +155,21 @@
   else
   {
 
+  }
+?>
+<?php
+  if (isset($_POST['update_student'])) {
+      $upen = $_POST['enrollment'];
+      $update = mysql_query("UPDATE tbl_student_admission SET enrollment_number = '$upen'
+        WHERE enrollment_number = '$upen'");
+       if ($update) {
+            echo "<script>alert('Updated Successfully')</script>";
+        }
+        else
+        {
+            echo "<script>alert('Failed')</script>";  
+            echo mysql_error(); 
+        }
   }
 ?>
 

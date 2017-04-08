@@ -1,7 +1,6 @@
 <head>
 <link rel="icon" href="images/i/rc-logo.jpg">
-<title>Learn an Education Category Flat Bootstarp Resposive Website Template | Home :: w3layouts
-</title>
+<title>Learn an Education Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Learn Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -34,34 +33,3 @@ $(document).ready(function(){
 });
 </script>
 </head>
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand1" href="HomeFaculty.php">Student Portal</a>
-        </div>
-        <!--/.navbar-header-->
-        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" style="height: 1px;">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="login.html" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><span><?php echo $name;?></span></a>
-               
-                      <ul class="dropdown-menu">
-                         <!-- <li><?php echo $name;?></li> -->
-                         <li><a href="faculty_profile.php">Profile</a></li>
-                        
-                        <li><a href="logout.php">Logout</a></li>
-                      </ul>
-                </li>
-
-            </ul>
-        </div>
-        <div class="clearfix"> </div>
-      </div>
-        <!--/.navbar-collapse-->
-</nav>

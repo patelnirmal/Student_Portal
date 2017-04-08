@@ -1,35 +1,56 @@
 <?php
-    
-    include('db/faculty_session.php');
-    
-?>
+	
+	include('db/student_session.php');
 
+  if (isset($_POST['submitwork'])) {
+    $en = $_POST['studentEn'];
+    $subject = $_POST['studentSubject'];
+    $dept = $_POST['department'];
+    $sem = $_POST['semester'];
+    // $work = $_FILES["file"]["name"];
+
+  if(file_exists("Submission_Work/" . $_FILES["file"]["name"]))
+       {
+          echo $_FILES["file"]["name"] . " already exists. ";       
+        }
+      else
+      {
+          $work = $_FILES["file"]["name"];
+          $filePath = "Submission_Work/" . $work;
+        if(move_uploaded_file($_FILES["file"]["tmp_name"],$filePath))
+          { 
+            $insert = mysql_query("INSERT INTO tbl_student_submissions (enrollment_no, subject_name,subject_department,subject_sem,submission_work) 
+            VALUES ('$en','$subject','$dept','$sem','$work')");
+
+            if($insert)
+            {
+              echo "<script>alert('New Student Added Successfully')</script>";
+            }
+            else
+            {
+              echo "<script>alert('Failed')</script>";
+            }
+        }
+    }
+}
+
+?>
 <!DOCTYPE HTML>
 <html>
-<?php
-  include 'layouts/header.php';
-?>
-<style type="text/css">
- .faculty_box
- {
-  margin-top: 20px;
- } 
-</style>
+<?php include 'layouts/header.php'; ?>
 <body>
-
-
-   <!-- Collect the nav links, forms, and other content for toggling -->
-   <?php
-      include 'layouts/menu.php';
-   ?>
-    <!-- /.navbar-collapse -->
-   </div>
-</nav>
-<div class="admission">
-  <form method="post">
+<?php include 'layouts/menu.php'; ?>
+<div class="admission" >
+  <form method="post" enctype="multipart/form-data">
     <div class="container">
-      <h3>Student Report</h3>
+      <h3>Student Submissions</h3>
       <div class="col-md-6 admission_left"">
+        <div class="input-group input-group1">
+          <input class="form-control has-dark-background" name="studentEn" placeholder="Enrollmment Number" type="text"><br><br><br>
+
+          <input class="form-control has-dark-background" name="studentSubject" placeholder="Subject Name" type="text"><br><br><br>
+
+          <div class="col-md-6 admission_left"">
         <div class="input-group input-group1">
           <select name="studentdepartment" class="selectstyle" id="studentdepartment" 
                   onchange="searchSubject()">
@@ -158,78 +179,16 @@
             }
           </script>
         </div>
-      <input type="submit" value="Find" class="course-submit" name="btnreport" onclick=""><br><br>
-      
-      
-
-    </div>
 
 
+          <input type="file" name="file" class="file upload_1"><br><br>
+          <input type="submit" value="Submit" class="course-submit" name="submitwork">
 
-    <div class="faculty_box">
-        <div class="container">
-            <div class="row">
-                <form id="statt">
-                <table class="table table-bordered">
-                    <thead>
-                        <th>Enrollment No.</th>
-                        <th>Student Name</th>
-                        <th>Department</th>
-                        <th>Semester</th>
-                        <th>Attendance</th>
-                    </thead>
-                    <tbody>
-                    <?php
-                    if(isset($_POST['btnreport']))
-                      {
-                        $dept = $_POST['studentdepartment'];
-                        $seme = $_POST['studentsemester'];
-                        $select = mysql_query("SELECT * FROM tbl_student_admission WHERE 
-                          department='$dept' AND semester = '$seme'");
-
-                          while($row = mysql_fetch_object($select))
-                          {
-                              echo "<tr>
-                                      <td>$row->enrollment_number<input type='hidden' name='eno' value='<?=$row->enrollment_number;?>'></td>
-
-                                      <td>$row->first_name<input type='hidden' name='sfname' value='<?=$row->first_name;?>'
-                                          $row->last_name<input type='hidden' name='slname' value='<?=$row->last_name;?>'</td>
-                                      <td>$row->department <input type='hidden' name='sdepartment' value='<?=$row->department;?>'</td>
-                                      <td>$row->semester<input type='hidden' name='ssemester' value='<?=$row->semester;?>'</td>
-                                      <td>
-                                        <select name='attendance' class='selectstyle'>
-                                          <option value='Presetnt'>Present</option>
-                                          <option value='Absent'>Absent</option>
-                                        </select>
-                                      </td>
-                                    </tr>";
-                              
-                          }
-
-                      }
-                      
-                    ?>
-                    </tbody>
-                </table>
-                </form>
-            </div>
-            <input type="submit" value="Save" class="course-submit" name="btnsave">
-         
         </div>
-     </div>
-  </form>   
+      </div>
+    </div>
+  </form>
 </div>
-<!-- form -->
-<?php
-  include 'layouts/footer.php';
-?>
-
+<?php include 'layouts/footer.php'; ?>
 </body>
-</html>
-<script type="text/javascript">
-$(document).ready(function(){
-  $('.course-submit').click({
-    alert('Here');
-  });
-});
-</script>
+</html> 

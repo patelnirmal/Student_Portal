@@ -12,6 +12,7 @@
 				AND log_type='$login_type'");
 			$row = mysql_fetch_assoc($sql);
 
+			$facid = $row['reg_id'];
 			$name = $row['firstname'];
 	}
 	else 
