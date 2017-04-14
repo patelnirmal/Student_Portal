@@ -16,19 +16,15 @@
             <li><a href="HomeFaculty.php">Home</a></li>
             <!-- <li><a href="faculty.html">Profile</a></li>	 -->
     		
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Student<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="studentDetails.php">Student Details</a></li>
-                <li><a href="updateStudent.php">Update Student</a></li>
-               </ul>
-            </li>
+            
+            <li><a href="studentDetails.php">Student Details</a></li> 
             <li><a href="studentAttendance.php">Attendance</a></li>	
             
              <li class="dropdown">
             	<a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Exams<span class="caret"></span></a>
             	<ul class="dropdown-menu" role="menu">
                 	<li><a href="examTimeTable.php">Exam Time-Table</a></li>
+                  <li><a href="viewExamTimeTable.php">View Exam Time-Table</a></li>
                 	<li><a href="examResult.php">Exam Results</a></li>
                 	
               </ul>
@@ -36,7 +32,14 @@
 
             <li><a href="getSubmission.php">Submissions</a></li>	
 
-            <li><a href="addNotice.php">Add/Update E-Notice Board</a></li>
+            
+            <li class="dropdown">
+              <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Notice<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="addNotice.php">Add/Update E-Notice Board</a></li>
+                  <li><a href="noticeBoard.php">View Notice Board</a></li> 
+              </ul>
+            </li>
             <li class="last"><a href="contact.html">Contacts</a></li>
         </ul>
      </div>

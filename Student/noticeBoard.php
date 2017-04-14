@@ -49,8 +49,8 @@
                         
                         $dept = $_POST['department'];
                         $select = mysql_query("SELECT * FROM tbl_notice WHERE notice_department='$dept'");
-                        
-                          while($row = mysql_fetch_object($select))
+                        if (mysql_num_rows($select)>0) {
+                           while($row = mysql_fetch_object($select))
                           {
                               echo "<tr>
                                     <td>$row->notice_title</td>
@@ -59,6 +59,9 @@
                                     <td>$row->notice_details</td>
                                     </tr>";
                           }
+                        }else{
+                          echo "<script>alert('No Data Found')</script>";
+                        }
                       }
                     ?>
                     </tbody>

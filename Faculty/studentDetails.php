@@ -91,6 +91,7 @@
                         $seme = $_POST['studentsemester'];
                         $select = mysql_query("SELECT * FROM tbl_student_admission WHERE 
                           department='$dept' AND semester = '$seme'");
+                        if (mysql_num_rows($select)>0) {
                           while($row = mysql_fetch_object($select))
                           {
                                   echo "<tr>
@@ -107,6 +108,9 @@
                                       <td><img src='../admin/Student_photo/$row->student_photo' height='100' width='100'></td>
                                     </tr>";
                           }
+                        }else{
+                          echo "<script>alert('Not data Found')</script>";
+                        }
                         
                       } 
                     ?>

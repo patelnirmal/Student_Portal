@@ -73,9 +73,6 @@
 <div class="courses_banner">
     <div class="container">
       <h3>Admissions</h3>
-      <p class="description">
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
-        </p>
         <div class="breadcrumb1">
             <ul>
                 <li class="icon6"><a href="index.html">Home</a></li>
@@ -88,7 +85,7 @@
 <div class="admission">
      <div class="container">
         <h1>Introduce Yourself</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        
         <div class="col-md-6 admission_left">
           <h2>Personal Information</h2>
           <form method="post" enctype="multipart/form-data">
@@ -124,6 +121,15 @@
                       <option value="Area">Area</option>
                       <option value="Bapunagar">Bapunagar</option>
                       <option value="Nikol">Nikol</option>
+                      <option value="Chandkheda">Chandkheda</option>
+                      <option value="SataDhar">SataDhar</option>
+                      <option value="Ghatlodia">Ghatlodia</option>
+                      <option value="S.G Highway">S.G Highway</option>
+                      <option value="Thaltej">Thaltej</option>
+                      <option value="Naroda">Naroda</option>
+                      <option value="SahiBaug">SahiBaug</option>
+                      <option value="Vastral">Vastral</option>
+                      <option value="Bopal">Bopal</option>
                     </select>
                   </div>
                  </div>

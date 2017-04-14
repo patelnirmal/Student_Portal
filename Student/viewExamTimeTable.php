@@ -65,8 +65,8 @@
                         $dept = $_POST['department'];
                         $sem = $_POST['semester'];
                         $select = mysql_query("SELECT * FROM tbl_examtimetable WHERE exam_department='$dept' AND exam_sem='$sem'");
-                        
-                          while($row = mysql_fetch_object($select))
+                        if (mysql_num_rows($select)>0) {
+                           while($row = mysql_fetch_object($select))
                           {
                               echo "<tr>
                                     <td>$row->exam_name</td>
@@ -75,7 +75,10 @@
                                     <td>$row->exam_date</td>
                                     </tr>";
                           }
+                        }else{
+                         echo "<script>alert('No Data Found')</script>";
                       }
+                        }
                     ?>
                     </tbody>
                 </table>

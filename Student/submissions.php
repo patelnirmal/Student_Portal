@@ -4,9 +4,9 @@
 
   if (isset($_POST['submitwork'])) {
     $en = $_POST['studentEn'];
-    $subject = $_POST['studentSubject'];
-    $dept = $_POST['department'];
-    $sem = $_POST['semester'];
+    $subject = $_POST['subject'];
+    $dept = $_POST['studentdepartment'];
+    $sem = $_POST['studentsemester'];
     // $work = $_FILES["file"]["name"];
 
   if(file_exists("Submission_Work/" . $_FILES["file"]["name"]))
@@ -24,7 +24,7 @@
 
             if($insert)
             {
-              echo "<script>alert('New Student Added Successfully')</script>";
+              echo "<script>alert('Work Submitted SuccessFully')</script>";
             }
             else
             {
@@ -47,8 +47,6 @@
       <div class="col-md-6 admission_left"">
         <div class="input-group input-group1">
           <input class="form-control has-dark-background" name="studentEn" placeholder="Enrollmment Number" type="text"><br><br><br>
-
-          <input class="form-control has-dark-background" name="studentSubject" placeholder="Subject Name" type="text"><br><br><br>
 
           <div class="col-md-6 admission_left"">
         <div class="input-group input-group1">
@@ -88,7 +86,7 @@
         <div class="input-group input-group1">
           <select name="subject" class="selectstyle" id="subject">
               <!-- <option>Subject</option> -->
-          </select>
+          </select><br><br><br>
           <script type="text/javascript">
             function searchSubject() {
                 var dep = document.getElementById('studentdepartment').value;

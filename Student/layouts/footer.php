@@ -1,8 +1,10 @@
  <div class="footer">
     	<div class="container">
     		<div class="col-md-3 grid_4">
-    		   <h3>About Us</h3>	
-    		   <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.."</p>
+    		   <h3>About Us</h3> 
+              R.C. Technical Institute is Govt College.
+              This is reputed college and is been established by <strong>Ranchhodlal Chhotalal</strong> since 1900s.
+           <p></p>
     		      <ul class="social-nav icons_2 clearfix">
                     <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#" class="facebook"> <i class="fa fa-facebook"></i></a></li>
@@ -10,29 +12,31 @@
                  </ul>
     		</div>
     		<div class="col-md-3 grid_4">
-    		   <h3>Quick Links</h3>
-    			<ul class="footer_list">
-    				<li><a href="#">-  PRIOR LEARNING ASSESSMENT </a></li>
-    				<li><a href="#">-  INTERNATIONAL STUDENTS</a></li>
-    				<li><a href="#">-  CAREER OPPORTUNITIES</a></li>
-    				<li><a href="#">-   NEW STUDENT ORIENTATION</a></li>
-    				<li><a href="#">-   NEW CLASSROOM TECHNOLOGY</a></li>
-    			</ul>
-    		</div>
+           <h3>Quick Links</h3>
+          <ul class="footer_list">
+            <li><a href="http://rcti.cteguj.in/"><strong>R.C. Technical Institute</strong></a></li>
+            <li><a href="http://www.gtu.ac.in/"><strong>Gujarat Technical Institute</strong></a></li>
+            <li><a href="http://www.gtu.ac.in/result.aspx"><strong>Exam Results</strong></a></li>
+            <li><a href="http://www.gturesults.in/recheck.aspx"><strong>Re-Check Results</strong></a></li>
+            
+          </ul>
+        </div>
     		<div class="col-md-3 grid_4">
-    		   <h3>Contact Us</h3>
-    			<address>
-                     <strong>Opp Sola Civil</strong>
+           <h3>Contact Us</h3>
+          <address>
+                    <strong>Ranchhodlal Chhotalal Technical Institute</strong>
                     <br>
-                    <span>Near Gujarat High Court </span>
-                    <br><br>
-                    <span>S.G.Highway, Sola</span>
+                    <span>Opp Civil, Near Gujarat High Court,</span>
                     <br>
-                    <abbr>Mobile No : </abbr> +91 7927664785
+                    <span> S.G.Highway, Sola, </span>
                     <br>
-                    <abbr>Email : </abbr> <a href="#">rctisola@yahoo.com</a>
+                    <span>Ahmedabad, Gujarat 380060, </span>
+                    <br>
+                    <abbr>Telephone : </abbr>  079 2766 4785
+                    <br>
+                    <abbr>Email : </abbr> <a href="mailto@example.com">info(at)Learn.com</a>
                </address>
-    		</div>
+        </div>
     		<div class="col-md-3 grid_4">
     		   <h3>Working Hours</h3>
     			 <table class="table_working_hours">

@@ -18,12 +18,24 @@
 			VALUES('$fname','$lname','$uname','$pass','$confpass','$email','$gender','$contact','$logtype')");
  		if ($sql) 
  		{
- 			//echo "Record save";
- 			header('Location:login.php');
+ 			echo"<script>alert('Registered')</script>";
+
+ 			$msg="ID".$uname."Pass".$pass;
+
+                $finalmsg=urlencode($msg);
+
+                $ch=curl_init("http://login.bulksms.bz/api/sendhttp.php?authkey=2958Ahhu6E89L58e8caa7&mobiles=$contact&message=$finalmsg&sender=WEBREV&route=4");
+
+                curl_exec($ch);                
+                if($ch){
+                  echo "<script>alert('Sent')</script>";
+                }else{
+                  echo "<script>alert('Data Sending Failed')</script>";
+                }                      
  		}
  		else
  		{
- 			//echo "Record not save";
+ 			echo"<script>alert('Failed')</script>";	
  		}
  	}
  	

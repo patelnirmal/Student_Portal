@@ -24,7 +24,7 @@
 
           <div class="col-md-6 admission_left"">
             <div class="input-group input-group1">
-              <input class="form-control has-dark-background" name="studentEn" placeholder="Enrollmment Number" type="text"><br><br><br>
+              <input class="form-control has-dark-background" name="studentEn" placeholder="Enrollmment Number" type="text" required=""><br><br><br>
             </div>
             <input type="submit" value="Submit" class="course-submit" name="findWork">
           </div>
@@ -47,13 +47,17 @@
                       if (isset($_POST['findWork'])) {
                         $en = $_POST['studentEn'];
                         $search = mysql_query("SELECT * FROM tbl_student_submissions WHERE enrollment_no = '$en'");
-                        while ($row = mysql_fetch_object($search)) {
+                        if (mysql_num_rows($search)>0) {
+                          while ($row = mysql_fetch_object($search)) {
                           echo "<tr>
                                     <td>$row->enrollment_no</td>
                                     <td>$row->subject_name</td>
                                     <td>$row->subject_department</td>
                                     <td><a href='../Student/Submission_Work/$row->submission_work'>$row->submission_work</a></td>
                                     </tr>";
+                        }
+                        }else{
+                          echo "<script>alert('No Data Found')</script>";
                         }
                       }
                     ?>

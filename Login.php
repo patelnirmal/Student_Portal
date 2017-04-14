@@ -32,12 +32,10 @@
 	 		 {
 	 		 	echo "<script>alert('Login Type is Not Matched')</script>";
 	 		 }
-
 	 	}
 	 	else
 	 	{
 	 		echo "<script>alert('Username and Password id Wrong')</script>";
-	 		
 	 	}
  	}
 

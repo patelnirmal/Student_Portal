@@ -68,9 +68,7 @@
                       {
                         $dept = $_POST['facultydepartment'];
                         $select = mysql_query("SELECT * FROM tbl_faculty_add WHERE department='$dept'");
-                          
-                        $row = mysql_fetch_object(mysql_query("SELECT * FROM tbl_faculty_add"));
-
+                        if (mysql_num_rows($select)>0) {
                           while($row = mysql_fetch_object($select))
                           {
                               echo "<tr>
@@ -86,6 +84,9 @@
                                       <td><img src='Faculty_photo/$row->faculty_photo' height='100' width='100'></td>
                                     </tr>";
                           }
+                        }else{
+                          echo "<script>alert('No record Found')</script>";
+                        }
                       }
                     ?>
                     </tbody>

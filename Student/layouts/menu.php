@@ -17,7 +17,7 @@
 		       
 		        	  <ul class="dropdown-menu">
 			            <!-- <li><?php echo $name;?></li> -->
-			 			
+			 			      <li><a href="viewProfile.php">Profile</a></li>
 			            <li><a href="logout.php">Logout</a></li>
 		              </ul>
 		        </li>
@@ -44,13 +44,13 @@
     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
         <ul class="nav navbar-nav nav_1">
             <li><a href="HomeStudent.php">Home</a></li>
-            <li><a href="about.html">Faculty</a></li>
+            <!-- <li><a href="about.html">Faculty</a></li> -->
     		<li><a href="faculty.html">Attendance</a></li>
             <li class="dropdown">
             	<a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Exams<span class="caret"></span></a>
             	<ul class="dropdown-menu" role="menu">
                 	<li><a href="viewExamTimeTable.php">Exam Time-Table</a></li>
-                	<li><a href="shortcodes.html">Exam Results</a></li>
+                	<li><a href="viewResult.php">Exam Results</a></li>
                 	
               </ul>
             </li>

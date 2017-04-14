@@ -15,7 +15,7 @@
 
                 $finalmsg=urlencode($msg);
 
-                $ch=curl_init("http://login.bulksms.bz/api/sendhttp.php?authkey=2958ACCrlvwbJf8b58e8bc4d&mobiles=$mob&message=$finalmsg&sender=WEBREV&route=4");
+                $ch=curl_init("http://login.bulksms.bz/api/sendhttp.php?authkey=2958Ahhu6E89L58e8caa7&mobiles=$mob&message=$finalmsg&sender=WEBREV&route=4");
 
                 curl_exec($ch);                
                 if($ch){
