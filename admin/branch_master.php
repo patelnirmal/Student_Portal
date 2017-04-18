@@ -96,7 +96,7 @@
                  ><br><br><br>
 
                 <input class="form-control has-dark-background" name="branch_name" 
-                id="slider-name" placeholder="Branch Name" type="text" required=""
+                id="slider-name" placeholder="Branch Name" type="text" onkeypress="return onlyAlphabets(event,this);" required=""
                 value="<?php
                     if (isset($_GET['edit'])) {
                         echo $row1['department_name'];
@@ -169,32 +169,7 @@
                 }
             ?>
 
-<!--     		<ul class="table-list">
-            	<li class="clearfix">
-    					<div class="id_col">002</div>
 
-        				<div class="name_col"><a href="#">B2 Branch</a></div>
-
-        				<div class="duration_col">
-        						<a href="#">Edit</a>
-        						<a href="#">Update</a>
-        						<a href="#">Delete</a>
-        				</div>
-    			</li>
-    		</ul>
-    		<ul class="table-list">
-            	<li class="clearfix">
-    					<div class="id_col">003</div>
-
-        				<div class="name_col"><a href="#">C3 Branch</a></div>
-
-        				<div class="duration_col">
-        						<a href="#">Edit</a>
-        						<a href="#">Update</a>
-        						<a href="#">Delete</a>
-        				</div>
-    			</li>
-    		</ul> -->
     	</div>
 	</div>
 </div>
@@ -208,5 +183,26 @@
 ?>
 <script src="js/jquery.countdown.js"></script>
 <script src="js/script.js"></script>
+<script language="Javascript" type="text/javascript">
+
+        function onlyAlphabets(e, t) {
+            try {
+                if (window.event) {
+                    var charCode = window.event.keyCode;
+                }
+                else if (e) {
+                    var charCode = e.which;
+                }
+                else { return true; }
+                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123)|| (charCode == 32))
+                else
+                    return false;
+            }
+            catch (err) {
+                alert(err.Description);
+            }
+        }
+
+    </script>
 </body>
 </html>	

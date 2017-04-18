@@ -91,19 +91,19 @@
                </select> -->
              </div>
              <div class="input-group input-group1">
-                <input class="form-control has-dark-background" name="facid" id="slider-name" placeholder="Faculty ID" type="text" required="">
+                <input class="form-control has-dark-background" name="facid" id="slider-name" placeholder="Faculty ID" type="text" required="" onkeypress="return onlyAlphabets(event,this);">
              </div>
              <div class="input-group input-group1">
-                <input class="form-control has-dark-background" name="fname" id="slider-name" placeholder="First Name" type="text" required="">
+                <input class="form-control has-dark-background" name="fname" id="slider-name" placeholder="First Name" type="text" required="" onkeypress="return onlyAlphabets(event,this);">
              </div>
              <div class="input-group input-group1">
-                <input class="form-control has-dark-background" name="lname" id="slider-name" placeholder="Last Name" type="text" required="">
+                <input class="form-control has-dark-background" name="lname" id="slider-name" placeholder="Last Name" type="text" required="" onkeypress="return onlyAlphabets(event,this);">
              </div>
              <div class="input-group input-group1">
-                <input class="form-control has-dark-background" name="father_name" id="slider-name" placeholder="Father Name" type="text" required="">
+                <input class="form-control has-dark-background" name="father_name" id="slider-name" placeholder="Father Name" type="text" required="" onkeypress="return onlyAlphabets(event,this);">
              </div>
              <div class="input-group input-group1">
-                <input class="form-control has-dark-background" name="mother_name" id="slider-name" placeholder="Mother Name" type="text" required="">
+                <input class="form-control has-dark-background" name="mother_name" id="slider-name" placeholder="Mother Name" type="text" required="" onkeypress="return onlyAlphabets(event,this);">
              </div>
             <!-- select-block -->
               <div class="select-block1">
@@ -138,7 +138,7 @@
                  </div>
                  <div class="col-md-4 form_box1">
                    <div class="input-group input-group1">
-                      <input class="form-control has-dark-background" name="pincode" id="slider-name" placeholder="Postal Code" type="text" required="">
+                      <input class="form-control has-dark-background" name="pincode" id="slider-name" placeholder="Postal Code" type="number" required="">
                    </div>
                   </div>
                   <div class="clearfix"> </div>
@@ -150,7 +150,7 @@
                 <div class="col-md-5">
                     <div class="radios">
                 <label for="radio-01" class="label_radio">
-                    <input type="radio" value="Male" name="gender"> Male
+                    <input type="radio" value="Male" name="gender" checked=""> Male
                 </label>
                 <label for="radio-02" class="label_radio">
                     <input type="radio" value="Female" name="gender"> Female
@@ -179,19 +179,15 @@
               <h3>Contact Information</h3>
               <!-- <form method="post"> -->
                <div class="input-group input-group1">
-                  <input class="form-control has-dark-background" name="email" id="slider-name" placeholder="Email ID" type="text" required="">
+                  <input class="form-control has-dark-background" name="email" id="slider-name" placeholder="Email ID" type="email" required="">
                </div>
                <div class="input-group input-group1">
-                  <input class="form-control has-dark-background" name="personal_no" id="slider-name" placeholder="Phone no (Personal)" type="text" required="">
+                  <input class="form-control has-dark-background" name="personal_no" id="slider-name" placeholder="Phone no (Personal)" type="number" required="">
                </div>
                <div class="input-group input-group1">
-                  <input class="form-control has-dark-background" name="alternate_no" id="slider-name" placeholder="Phone no (Alternate)" type="text" required="">
+                  <input class="form-control has-dark-background" name="alternate_no" id="slider-name" placeholder="Phone no (Alternate)" type="number" required="">
                </div><br><br><br>
-               <!-- <div class="input-group input-group1">
-                  <input class="form-control has-dark-background" name="slider-name" id="slider-name" placeholder="Postal code" type="text" required="">
-               </div> -->
-             <!--  <input type="submit" value="Apply Now" class="course-submit"> -->                               
-             <!-- </form>   -->
+               
          </div>
 
          <div class="col-md-6 admission_right">
@@ -238,25 +234,11 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td><input name="examination" type="text" class="no-box" placeholder="Examination"></td>
-                  <td><input name="uni" type="text" class="no-box" placeholder="University"></td>
-                  <td><input name="yearofpassing" type="text" class="no-box" placeholder="YOP"></td>
-                  <td><input name="per" type="text" class="no-box" placeholder="Percentage"></td>
+                  <td><input name="examination" type="text" class="no-box" onkeypress="return onlyAlphabets(event,this);" placeholder="Examination"></td>
+                  <td><input name="uni" type="text" class="no-box" onkeypress="return onlyAlphabets(event,this);" placeholder="University"></td>
+                  <td><input name="yearofpassing" type="number" class="no-box" placeholder="YOP"></td>
+                  <td><input name="per" type="number" class="no-box" placeholder="Percentage"></td>
                 </tr>
-
-                <!--<tr>
-                  <td><input name="examination" type="text" class="no-box" placeholder="Examination"></td>
-                  <td><input name="uni" type="text" class="no-box" placeholder="University"></td>
-                  <td><input name="yearofpassing" type="text" class="no-box" placeholder="YOP"></td>
-                  <td><input name="per" type="text" class="no-box" placeholder="Percentage"></td>
-                </tr>
-
-                <tr>
-                  <td><input name="examination" type="text" class="no-box" placeholder="Examination"></td>
-                  <td><input name="uni" type="text" class="no-box" placeholder="University"></td>
-                  <td><input name="yearofpassing" type="text" class="no-box" placeholder="YOP"></td>
-                  <td><input name="per" type="text" class="no-box" placeholder="Percentage"></td>
-                </tr>-->
                
                </tbody>
       </table><br><br>
@@ -266,6 +248,27 @@
      </div>
   </div>
 <?php include 'layouts/footer.php'; ?>
+<script language="Javascript" type="text/javascript">
 
+        function onlyAlphabets(e, t) {
+            try {
+                if (window.event) {
+                    var charCode = window.event.keyCode;
+                }
+                else if (e) {
+                    var charCode = e.which;
+                }
+                else { return true; }
+                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123)|| (charCode == 32))
+                    return true;
+                else
+                    return false;
+            }
+            catch (err) {
+                alert(err.Description);
+            }
+        }
+
+    </script>
 </body>
 </html>

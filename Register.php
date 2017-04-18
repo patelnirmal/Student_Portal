@@ -78,8 +78,8 @@
 			</div>
 			<div class="menu-text">
 				<ul>
-					<li><a href="http://localhost/Student%20Portal/login.php#">Login</a></li>
-					<li><a href="http://localhost/Student%20Portal/Register.php">Sign Up</a></li>
+					<!-- <li><a href="http://localhost/Student%20Portal/login.php#">Login</a></li> -->
+					<!-- <li><a href="http://localhost/Student%20Portal/Register.php">Sign Up</a></li> -->
 				</ul>
 			</div>
 </div>
@@ -91,19 +91,19 @@
 					<div class="header-left-bottom agileinfo">
 						
 					 <form  method="post">
-					 	<input type="text" placeholder="First Name" name="firstname"/>
-					 	<input type="text" placeholder="Last Name" name="lastname"/>
-						<input type="text" placeholder="Username" name="username"/>
-						<input type="password" placeholder="Password" name="password" />
-						<input type="password" placeholder="Confirm Password" name="confirmpassword" />
-						<input type="text" placeholder="Email" name="email" />
+					 	<input type="text" placeholder="First Name" name="firstname" required="" onkeypress="return onlyAlphabets(event,this);"/>
+					 	<input type="text" placeholder="Last Name" name="lastname" required="" onkeypress="return onlyAlphabets(event,this);" />
+						<input type="text" placeholder="Username" name="username" required="" />
+						<input type="password" placeholder="Password" name="password" required="" />
+						<input type="password" placeholder="Confirm Password" required="" name="confirmpassword" />
+						<input type="text" placeholder="Email" name="email" required="" />
 						
-						<select name="gender" class="selectstyle">
+						<select name="gender" class="selectstyle" required="">
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
 						</select>
 						<input type="text" placeholder="Contact No" name="contactno" "/>
-						<select name="logtype" class="selectstyle">
+						<select name="logtype" class="selectstyle" required="">
 							<option value="Faculty">Faculty</option>
 							<option value="Student">Student</option>
 						</select>
@@ -139,6 +139,27 @@
 <div class="copyright">
 	<!-- <p>© 2016 Classy Login Form. All rights reserved | Design by  <a href="#" target="_blank"></a></p> -->
 </div>
-<!--footer end here-->
+<script language="Javascript" type="text/javascript">
+
+        function onlyAlphabets(e, t) {
+            try {
+                if (window.event) {
+                    var charCode = window.event.keyCode;
+                }
+                else if (e) {
+                    var charCode = e.which;
+                }
+                else { return true; }
+                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+                    return true;
+                else
+                    return false;
+            }
+            catch (err) {
+                alert(err.Description);
+            }
+        }
+
+    </script>
 </body>
 </html>

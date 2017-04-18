@@ -18,7 +18,6 @@
     		
             
             <li><a href="studentDetails.php">Student Details</a></li> 
-            <li><a href="studentAttendance.php">Attendance</a></li>	
             
              <li class="dropdown">
             	<a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Exams<span class="caret"></span></a>
@@ -40,6 +39,15 @@
                   <li><a href="noticeBoard.php">View Notice Board</a></li> 
               </ul>
             </li>
-            <li class="last"><a href="contact.html">Contacts</a></li>
+            <li class="dropdown">
+              <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Attendance<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="studentAttendance.php">Take Attendance</a></li> 
+                  <li><a href="getAttendance.php">Get Attendance</a></li> 
+                  <li><a href="exportAttendance.php">Export Attendance</a></li> 
+              </ul>
+            </li>
+            
+            <!-- <li class="last"><a href="contact.html">Contacts</a></li> -->
         </ul>
      </div>

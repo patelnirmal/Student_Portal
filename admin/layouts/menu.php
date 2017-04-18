@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand1" href="index.html">E-Softech</a>
+          <a class="navbar-brand1" href="Homeadmin.php">Student Portal</a>
       </div>
       <!--/.navbar-header-->
       <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" style="height: 1px;">
@@ -63,11 +63,11 @@
             </li>   
             
             <li class="dropdown">
-                <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Master<span class="caret"></span></a>
+                <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Programs<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="branch_master.php">Branch Master</a></li>
-                    <li><a href="semester_master.php">Semester Master</a></li>
-                    <li><a href="exam_master.php">Exam Master</a></li>
+                    <li><a href="branch_master.php">Branch </a></li>
+                    <li><a href="semester_master.php">Semester</a></li>
+                    <li><a href="exam_master.php">Exam </a></li>
               </ul>
             </li>
         </ul>

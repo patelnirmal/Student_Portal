@@ -45,7 +45,7 @@
         <ul class="nav navbar-nav nav_1">
             <li><a href="HomeStudent.php">Home</a></li>
             <!-- <li><a href="about.html">Faculty</a></li> -->
-    		<li><a href="faculty.html">Attendance</a></li>
+    		<!-- <li><a href="faculty.html">Attendance</a></li> -->
             <li class="dropdown">
             	<a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Exams<span class="caret"></span></a>
             	<ul class="dropdown-menu" role="menu">

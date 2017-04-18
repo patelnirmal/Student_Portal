@@ -19,7 +19,6 @@
 	{
 		mysql_close($con);
 		header('Location:../login.php');
-		
 	}
 
 
